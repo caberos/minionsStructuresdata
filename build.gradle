@@ -1,0 +1,54 @@
+
+
+group 'jalasoft'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+apply plugin: 'idea'
+apply plugin: 'checkstyle'
+
+sourceCompatibility = 1.8
+
+checkstyle {
+    toolVersion = '8.9'
+}
+
+tasks.withType(JavaCompile) {
+    options.encoding = "UTF-8"
+}
+tasks.withType(Test) {
+    systemProperty "file.encoding", "UTF-8"
+}
+
+repositories {
+    jcenter()
+}
+
+buildscript {
+    repositories {
+        jcenter()
+        maven {
+            url 'http://repo.bodar.com'
+        }
+    }
+    dependencies {
+        classpath 'net.masterthought:cucumber-reporting:0.1.0'
+        classpath 'com.rajatthareja:reportbuilder:1.0.3'
+    }
+}
+
+dependencies {
+    compile group: 'log4j', name: 'log4j', version: '1.2.17'
+    compile group: 'com.googlecode.json-simple', name: 'json-simple', version: '1.1.1'
+    compile group: 'io.github.bonigarcia', name: 'webdrivermanager', version: '1.7.2'
+    compile group: 'org.apache.pdfbox', name: 'pdfbox', version: '2.0.11'
+
+
+
+}
+
+
+
+
+
+
