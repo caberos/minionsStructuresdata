@@ -107,3 +107,4 @@ public class LinkedList<T> implements IList {
         tail= current;
     }
 }
+
