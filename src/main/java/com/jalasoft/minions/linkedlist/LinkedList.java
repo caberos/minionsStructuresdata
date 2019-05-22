@@ -7,9 +7,12 @@ public class LinkedList<T> implements IList {
     Node<T> head;
     Node<T> tail;
 
+	/**
+	* method to add in the fisrt or head list.
+	*/
     @Override
-    public void add(Object nude) {
-        Node<T> newNode = new Node<T>((T) nude);
+    public void add(Object node) {
+        Node<T> newNode = new Node<T>((T) node);
         if (head == null) {
             head = newNode;
             tail = newNode;
@@ -19,6 +22,9 @@ public class LinkedList<T> implements IList {
         }
     }
 
+	/**
+	* method to print to list.
+	*/
     @Override
     public void printList() {
         if (head != null) {
@@ -30,6 +36,9 @@ public class LinkedList<T> implements IList {
             System.out.printf("List is null");
     }
 
+	/**
+	* method to remove in the fisrt or head list.
+	*/
     @Override
     public void removeFirst() {
         if (head != null && head.next != null) {
@@ -44,6 +53,10 @@ public class LinkedList<T> implements IList {
         }
     }
 
+	/**
+	* method to add in the last or tail list.
+	*/
+	@Override
     public void addLast(Object value) {
         Node newNode = new Node(value);
         if (tail == null) {
@@ -54,6 +67,10 @@ public class LinkedList<T> implements IList {
         tail = newNode;
     }
 
+	/**
+	* method to add in the add in the index to sent.
+	*/
+	@Override
     public void addIndex(int index, Object value) {
         if (index < 0) {
             throw new IndexOutOfBoundsException();
@@ -76,8 +93,12 @@ public class LinkedList<T> implements IList {
             }
         }
     }
-
-    private void addFront(Object value) {
+	
+	/**
+	* method to add in the add in front list.
+	*/
+	@Override
+    public void addFront(Object value) {
        Node newNode = new Node(value);
         if(head == null){
             head = newNode;
@@ -87,7 +108,11 @@ public class LinkedList<T> implements IList {
             head =newNode;
         }
     }
-
+	
+	/**
+	* method to remove index list.
+	*/
+	@Override
     public void remove(int index){
         Node current = head;
         for(int aux=1;aux<index;aux ++){
@@ -98,6 +123,11 @@ public class LinkedList<T> implements IList {
         aux.next = null;
 
     }
+	
+	/**
+	* method to remove the last list.
+	*/
+	@Override
     public void removeLast(){
         Node current = head;
         while(current.next !=tail){
