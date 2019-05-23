@@ -1,4 +1,4 @@
-package java.com.jalasoft.minions.linkedlist;
+package com.jalasoft.minions.linkedlist;
 
 /**
  * Created by DCABEROB on 5/7/2019.
@@ -105,5 +105,16 @@ public class LinkedList<T> implements IList {
         }
         current.next = null;
         tail= current;
+    }
+    public boolean isEmpty(){
+        return head == null;
+    }
+
+    public T getIndex(int index){
+        Node current = head;
+        for(int aux=1;aux<index;aux ++){
+            current = current.next;
+        }
+        return (T) current;
     }
 }
